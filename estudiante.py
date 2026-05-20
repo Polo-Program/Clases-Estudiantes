@@ -1,39 +1,41 @@
-import os, time
-
-def limpiarConsola():
-    os.system('cls' if os.name == "nt" else "clear")
-
-negro = "\033[30m"
-rojo = "\033[31m"
-verde = "\033[32m"
-blanco = "\033[37m"
-cerrar = "\033[0m"
-
-
 class Estudiante:
-    def __init__(self, nombreEs, edadEs, carreraEs, arancelEs):
-        self.nombre = nombreEs
-        self.edad = edadEs
-        self.carrera = carreraEs
-        self.arancel = arancelEs
-    def mostrar(self):
-        arancelNuevo = f"{self.arancel:,.0f}".replace(",",".")
-        print(f"{verde}" '=' * 45)
-        print(F"{rojo}            DATOS ESTUDIANTE      {cerrar}\n")
-        print(f"   Nombre     : {self.nombre}")
-        print(f"   Edad       : {self.edad}")
-        print(f"   Carrera    : {self.carrera}")
-        print(f"   Arancel    : {arancelNuevo}")
-        print(f"{verde}" '=' * 45 )
+    def __init__(self, nombreEs, notaEs):
+        self.__nombre = nombreEs
+        self.__nota = notaEs
 
-estudiante1 = Estudiante("Jean Paul Cáceres Acuña", 23, "Ingeneria en programacion", 1000000)
-estudiante2 = Estudiante("Antu Lincoñir", 18, "Ingeneria en Reelcion", 2000000)
-estudiante3 = Estudiante("Guillermo Contreras", 18, "Ingeneria en Masturbacion", 1000000000)
-estudiante4 = Estudiante("Basty Hormazabal", 20, "Kinesiologia", 10000000)
+    #Getters
+    def getNombre(self):
+        return self.__nombre
+    def getNota(self):
+        return self.__nota
+    
+    #Setters
+    def setNombre(self, nuevoNombre):
+        self.__nombre = nuevoNombre
+    def setNota(self, nuevaNota):
+        self.__nota = nuevaNota
 
-limpiarConsola()
+    #Metodo para mostrar si reprobo o aprobo
+    def resultado(self):
+        if self.getNota() >= 4.0:
+            print(f"El alumno {self.__nombre} ha aprobado")
+        else:
+            print(f"El estudiante {self.__nombre} ha reprobado")
+        print("=" * 45)
 
-estudiante1.mostrar()
-estudiante2.mostrar()
-estudiante3.mostrar()
-estudiante4.mostrar()
+    #Metodo para mostrar informacion
+    def imprimir(self):
+        print("=" * 45)
+        print(f"Nombre Estudiante  :   {self.getNombre()}")
+        print(f"Nota               :   {self.getNota()}")
+
+#Objetos 
+objetoEstudiante = Estudiante("Jean Cáceres", 35)
+objetoEstudiante.imprimir()
+objetoEstudiante.resultado()
+objetoEstudiante2 = Estudiante("Basty Hormazabal", 70)
+objetoEstudiante2.setNota(1.5)
+objetoEstudiante2.imprimir()
+objetoEstudiante2.resultado()
+
+
