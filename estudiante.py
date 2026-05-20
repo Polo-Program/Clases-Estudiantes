@@ -39,3 +39,32 @@ objetoEstudiante2.imprimir()
 objetoEstudiante2.resultado()
 
 
+class Auto:
+    def __init__(self, marcaAuto, colorAuto, kmRecoridos):
+        self.__marca = marcaAuto
+        self.__color = colorAuto
+        self.__km = kmRecoridos
+
+    def getMarca(self):
+        return self.__marca
+    def getColor(self):
+        return self.__color
+    def getKm(self):
+        return self.__km
+    def setMarca(self, nuevaMarca):
+        self.__marca = nuevaMarca
+    def setColor(self, nuevoColor):
+        self.__marca = nuevoColor
+    def setKm(self, nuevoKm):
+        self.__km = nuevoKm
+
+    def mostrarInformacion(self):
+        print(f"Marca  :    {self.getMarca()}")
+        print(f"color  :    {self.getColor()}")
+        print(f"KM     :    {self.getKm()}")
+
+objetoAuto = Auto("Toyota", "Rojo", 10000)
+
+objetoAuto.mostrarInformacion()
+objetoAuto.setColor("Verde")
+objetoAuto.mostrarInformacion()
