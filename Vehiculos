@@ -1,0 +1,63 @@
+class Vehiculo:
+    def __init__(self, marca, modelo, anio):
+        self.__marca = marca
+        self.__modelo = modelo
+        self.__anio = anio
+
+    def getMarca(self):
+        return self.__marca
+    def getModelo(self):
+        return self.__modelo
+    def getAnio(self):
+        return self.__anio
+    
+    def setNombre(self, nuevaMarca):
+        self.__marca = nuevaMarca
+    def setModelo(self, nuevoModelo):
+        self.__modelo = nuevoModelo
+    def setAño(self, nuevoAnio):
+        self.__anio = nuevoAnio
+    
+    def mostrarInformacion(self):
+        return f"{self.getMarca()}, {self.getModelo()}, {self.getAnio()}"
+
+class Automovil(Vehiculo):
+    def __init__(self, marca, modelo, anio, tipoCorreceria):
+        super().__init__(marca, modelo, anio,)
+        self.__tipoCorreceria = tipoCorreceria
+
+    def geTipoCorreceria(self):
+        return self.__tipoCorreceria
+    
+    def setTipoCorreceria(self, nuevaCarorceria):
+        self.__tipoCorreceria = nuevaCarorceria
+
+    def conducir (self):
+        return f"{super().mostrarInformacion()}, tipo: {self.geTipoCorreceria()}, una buena eleccion."
+    
+class Motocicleta(Vehiculo):
+    def __init__(self, marca, modelo, anio, tipoMoto):
+        super().__init__(marca, modelo, anio)
+        self.__tipoMoto = tipoMoto
+
+    def getTipoMoto(self):
+        return self.__tipoMoto
+    
+    def setMoto(self, nuevaMoto):
+        self.__tipoMoto = nuevaMoto
+
+    def acelerar (self):
+        return f"{super().mostrarInformacion()}, tipo: {self.getTipoMoto()}, acelera rapidamente."
+        
+    
+objetoVehiculo = Vehiculo("Mercedes", "Benz", 2003)
+print(objetoVehiculo.mostrarInformacion())
+
+
+objetoAutomovil = Automovil("Subaru", "Impresa", 1998, "Autoportante")
+print(objetoAutomovil.mostrarInformacion())
+print("Mi automovil:", objetoAutomovil.conducir())
+    
+objetoMoto = Motocicleta("Yamaha", "G1000", 2001, "Carrera")
+print(objetoMoto.mostrarInformacion())
+print("Mi motocicleta:", objetoMoto.acelerar())
