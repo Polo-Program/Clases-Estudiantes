@@ -1,0 +1,99 @@
+class Hardware:
+    def __init__(self, nombre, precio, marca):
+        self.__nombre = nombre
+        self.__precio = precio
+        self.__marca = marca
+
+    def getNombre (self):
+        return self.__nombre
+    
+    def getPrecio (self):
+        return self.__precio
+    
+    def getMarca (self):
+        return self.__marca
+    
+    def setNombre (self, nuevoNombre):
+        self.__nombre = nuevoNombre
+    def setPrecio (self, nuevoPrecio):
+        self.__precio = nuevoPrecio
+    def setMarca (self, nuevaMarca):
+        self.__marca = nuevaMarca
+
+    def mostrar(self):
+        return f"{self.getNombre()}, {self.getPrecio()}, {self.getMarca()}"
+    
+class Procesador(Hardware):
+    def __init__(self, nombre, precio, marca, nucleos, velocidad, arquitectura):
+        super().__init__(nombre, precio, marca)
+        self.__nucleos = nucleos
+        self.__velocidad = velocidad
+        self.__arquitectura = arquitectura
+        
+    def getNucleos (self):
+        return self.__nucleos
+    def getVelocidad (self):
+        return self.__velocidad
+    def getArquitectura (self):
+        return self.__arquitectura
+        
+    def setNucleos (self, nuevoNucleo):
+        self.__nucleos = nuevoNucleo
+    def setVelocidad (self, nuevaVelocidad):
+        self.__velocidad = nuevaVelocidad
+    def setArquitectura (self, nuevaArquitectura):
+        self.__arquitectura = nuevaArquitectura
+        
+    def mostrarDetalle(self):
+            return f"{super().mostrar()}, {self.getNucleos()}, {self.getVelocidad()}, {self.getArquitectura()}"
+    
+class TarjetaGrafica(Hardware):
+    def __init__(self, nombre, precio, marca, memoria, velocidad, arquitectura, frecuencia):
+        super().__init__(nombre, precio, marca)
+        self.__memoria = memoria
+        self.__velocidad = velocidad
+        self.__arquitectura = arquitectura
+        self.__frecuencia = frecuencia
+
+    def getMemoria (self):
+        return self.__memoria    
+    def getVelocidad (self):
+        return self.__velocidad
+    def getArquitectura (self):
+        return self.__arquitectura
+    def getFrecuencia (self):
+        return self.__frecuencia
+        
+    def setMemoria (self, nuevaMemoria):
+        self.__memoria = nuevaMemoria
+    def setVelocidad (self, nuevaVelocidad):
+        self.__velocidad = nuevaVelocidad
+    def setArquitectura (self, nuevaArquitectura):
+        self.__arquitectura = nuevaArquitectura
+    def setFrecuencia (sefl, nuevaFrecuencia):
+        sefl.__frecuencia = nuevaFrecuencia
+
+    def mostrarTarjeta(self):
+        return f"{super().mostrar()}, {self.getMemoria()}, {self.getVelocidad()}, {self.getArquitectura()}, {self.getFrecuencia()}"
+        
+objetoHardware = Hardware("Tarjeta Grafica", 2000000, "AMD")
+print("")
+print("=" * 50)
+print("             NFORMACION HARDWARE        ")
+print("=" * 50)
+print(objetoHardware.mostrar())
+
+objetoProcesador = Procesador("I3 F9100", 70000, "Intel", 16, "5000Ghz", "64bits")
+print("")
+print("=" * 50)
+print("            INFORMACION PROCESADOR        ")
+print("=" * 50)
+print(objetoProcesador.mostrarDetalle())
+
+
+objetoTarjetaGrafica = TarjetaGrafica("Nvidia 1660 Super", 200000, "Nvidia", "8GB", "2000Ghz", "\n64bits", "1520 MHz")       
+print("")
+print("=" * 50)
+print("            INFORMACION TARJETA GRAFICA        ")
+print("=" * 50)
+print(objetoTarjetaGrafica.mostrarTarjeta())
