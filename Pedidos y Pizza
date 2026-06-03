@@ -1,0 +1,94 @@
+class Pedido():
+    def __init__(self, nombreC, sectorE, cantidadP):
+        self.__nombre = nombreC
+        self.__sector = sectorE
+        self.__cantidad = cantidadP
+    
+    def getNombre(self):
+        return self.__nombre
+    def getSector(self):
+        return self.__sector
+    def getCantidad(self):
+        return self.__cantidad
+    
+    def setNombre(self, nuevoNombre):
+        self.__nombre = nuevoNombre
+    def setSector(self, nuevoSector):
+        self.__sector = nuevoSector
+    def setCantidad(self, nuevaCantidad):
+        self.__cantidad = nuevaCantidad
+
+    def imprimirInfo(self):
+        print(f"Nombre Cliente: {self.getNombre()}")
+        print(f"Sector de entrega: {self.getSector()}")
+        print(f"Cantidad de pedidos: {self.getCantidad()}")
+
+    def calcularTiempoEntrega(self):
+        tiempo = (self.getCantidad() * 15)
+        return tiempo
+    
+objetoPedido1 = Pedido("Jean", "Pedro de Valdivia", 3)
+objetoPedido2 = Pedido("Antu", "Metrenco", 2)
+objetoPedido2.setCantidad(5)
+
+print("            PEDIDOSYA        ")
+print("=" * 35)
+objetoPedido1.imprimirInfo()
+print(f"Su pedido se demorara: {objetoPedido1.calcularTiempoEntrega()} minutos")
+print("=" * 35)
+
+print("            PEDIDOSYA        ")
+print("=" * 35)
+objetoPedido2.imprimirInfo()
+print(f"Su pedido se demorara: {objetoPedido2.calcularTiempoEntrega()} minutos")        
+print("=" * 35)
+
+
+
+class Pizza():
+    def __init__(self, nombreP, precio, cantidad):
+        self.__nombre = nombreP
+        self.__precio = float(precio)
+        self.__cantidad = int(cantidad)
+    
+    def getNombre(self):
+        return self.__nombre
+    def getPrecio(self):
+        return self.__precio
+    def getCantidad(self):
+        return self.__cantidad
+    
+    def setNombre(self, nuevoNombre):
+        self.__nombre = nuevoNombre
+    def setPrecio(self, nuevoPrecio):
+        self.__precio = nuevoPrecio
+    def setCantidad(self, nuevaCantidad):
+        self.__cantidad = nuevaCantidad
+
+    def mostrarInfor(self):
+        print (f"Pizza:  {self.getNombre()}")
+        print (f"Precio:  {self.getPrecio()}")       
+        print (f"Cantidad:  {self.getCantidad()}")
+
+
+    def calcularTotal(self):
+        return self.getPrecio() * self.getCantidad()
+
+    def aplicarDescuento(self, porcentaje):
+        descuento = self.calcularTotal() * (porcentaje / 100)
+        return self.calcularTotal() - descuento
+        
+
+objetoPizza1 = Pizza("Napolitana", 7000, 3)
+objetoPizza2 = Pizza("Criolla", 8000, 1)
+objetoPizza2.setCantidad(4)
+
+objetoPizza1.mostrarInfor()
+print("=" * 40)
+print(f"Total   $ {objetoPizza1.calcularTotal()}")
+print(f"Total con descuento $ {objetoPizza1.aplicarDescuento(10)}")
+print("=" * 40)
+objetoPizza2.mostrarInfor()
+print(f"Total   $ {objetoPizza2.calcularTotal()}")
+print(f"Total con descuento $ {objetoPizza2.aplicarDescuento(15)}")
+print("=" * 40)
